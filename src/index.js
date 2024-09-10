@@ -1,5 +1,6 @@
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const cors = require('cors');
 const  routes  = require('./routes/routes');
 const connectDatabase = require('./config/db');
 require('dotenv').config();
@@ -10,6 +11,10 @@ connectDatabase();
 const app = express();
 
 const port = process.env.PORT || 8080;
+
+
+// Cross Origin
+app.use(cors());
 // Accept JSON DATA
 app.use(express.json());
 
